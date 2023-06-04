@@ -59,5 +59,21 @@ def isAnagram2(s: str, t: str) -> bool:
 def isAnagram3(s: str, t: str) -> bool:
     return sorted(s) == sorted(t)
 
-result = isAnagram3(s, t)
+# result = isAnagram3(s, t)
+# print(result)
+
+
+# another efficient time complexity can be achived through using count() in string
+
+def isAnagram4(s, t):
+        if len(s) != len(t):
+            return False
+        for idx in set(s):
+            # Compare s.count(l) and t.count(l) for every index i from 0 to 26...
+            # If they are different, return false...
+            if s.count(idx) != t.count(idx):
+                return False
+        return True     # Otherwise, return true...
+
+result = isAnagram4(s, t)
 print(result)
