@@ -23,6 +23,8 @@ from collections import defaultdict
 
 #problem can be solved in O(m*n)
 #this is an efficient way by declaring the needed space firstly for counting each string 
+#each count list will be unique if they are anagram
+#by that as key we will append the anagrams as list to the hashmap
 
 def groupAnagrams(strs):
         ans = defaultdict(list)
