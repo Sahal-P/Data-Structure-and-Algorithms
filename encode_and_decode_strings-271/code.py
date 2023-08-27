@@ -1,6 +1,8 @@
 import time
+from typing import List
 
-def encodedecode(arr):
+
+def encodedecode(arr: List[str]) -> str:
     encoded = ""
     for i in arr:
         lent = len(i)
@@ -8,7 +10,7 @@ def encodedecode(arr):
     return encoded
 
 
-def decodecode(encoded):
+def decodecode(encoded: str) -> List[str]:
     decoded = []
     num = ""
     for t, j in enumerate(encoded):
@@ -24,7 +26,7 @@ def decodecode(encoded):
     return decoded
 
 #converting string to arr
-def stringtoarr(stri):
+def stringtoarr(stri: str) -> List[str]:
     arr = []
     word = ""
     for i in stri:
@@ -43,8 +45,10 @@ string = "At vero eos et Ut venenatis magna hendrerit, dignissim sem ac, feugiat
 
 if __name__ == "__main__":
   start = time.time()
-  convStr = stringtoarr(string)
-  val = encodedecode(convStr)
-  val2 = decodecode(val)
+  # convStr = stringtoarr(string)
+  # val = encodedecode(convStr)
+  # val2 = decodecode(val)
+  decodecode(encodedecode(stringtoarr(string)))
   end = time.time()
-  print(end - start)
+  print(end-start)
+  # time consumed in my system 0.007991790771484375
