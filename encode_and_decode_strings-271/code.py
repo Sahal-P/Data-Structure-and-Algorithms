@@ -23,7 +23,7 @@ def decodecode(encoded):
             num = ""
     return decoded
 
-
+#converting string to arr
 def stringtoarr(stri):
     arr = []
     word = ""
@@ -42,7 +42,6 @@ string = "At vero eos et Ut venenatis magna hendrerit, dignissim sem ac, feugiat
 
 
 if __name__ == "__main__":
-  
   start = time.time()
   convStr = stringtoarr(string)
   val = encodedecode(convStr)
