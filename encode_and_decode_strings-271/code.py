@@ -2,15 +2,15 @@ import time
 from typing import List
 
 
-def encodedecode(arr: List[str]) -> str:
+def encode(arr: List[str]) -> str:
     encoded = ""
     for i in arr:
         lent = len(i)
         encoded += f"{lent}#{i}"
     return encoded
 
-
-def decodecode(encoded: str) -> List[str]:
+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
+def decode(encoded: str) -> List[str]:
     decoded = []
     num = ""
     for t, j in enumerate(encoded):
@@ -46,9 +46,9 @@ string = "At vero eos et Ut venenatis magna hendrerit, dignissim sem ac, feugiat
 if __name__ == "__main__":
   start = time.time()
   # convStr = stringtoarr(string)
-  # val = encodedecode(convStr)
-  # val2 = decodecode(val)
-  decodecode(encodedecode(stringtoarr(string)))
+  # val = encode(convStr)
+  # val2 = decode(val)
+  decode(encode(stringtoarr(string)))
   end = time.time()
   print(end-start)
   # time consumed in my system 0.007991790771484375
