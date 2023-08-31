@@ -45,7 +45,19 @@ def isPalindrome2(s: str) -> bool:
         left, right = left+1, right-1
     
     return True
+
+# most run time efficient 
+def isPalindrome3(s: str) -> bool:
+        s = ''.join([i for i in s if i.isalnum()]).lower()
+        print(s)
+        x = 0
+        y = len(s) - 1
+        while x < y:
+            if s[x] != s[y]: return False
+            x += 1
+            y -= 1
+        return True
     
-print(isPalindrome2("A man, a plan, a canal: Panama"))
+print(isPalindrome3("A man, a plan, a canal: Panama"))
 
 # isPalindrome("A man, a plan, a canal: Panamaxxx")
