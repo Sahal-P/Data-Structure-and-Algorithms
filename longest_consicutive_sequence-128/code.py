@@ -23,10 +23,16 @@ def longestConsecutive(nums: List[int]) -> int:
             #     longest=length
             
     print(longest)
+    
 from functools import cache
+
+# In the worst case, the dfs function can be called for each number in the input list, and the maximum recursion depth is bounded by the range of the input values.
+# Therefore, the worst-case time complexity is O(n + R), where n is the number of elements in the input list and R is the range of the input values.
+# same for space
     
 def longestConsecutive1(nums: List[int]) -> int:
     nset = set(nums)
+    #used cache decorator for memorization of input and imporve performance
     @cache
     def dfs(n: int) -> int:
         if n not in nset:
@@ -35,7 +41,9 @@ def longestConsecutive1(nums: List[int]) -> int:
     
     res = 0
     for n in nums:
+        print(n, res)
         res = max(res, dfs(n))
+        print(res)
     print(res)
     return res
 
