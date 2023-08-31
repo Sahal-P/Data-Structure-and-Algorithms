@@ -5,9 +5,10 @@ import time
 from testcase import testcase
 
 
-
+# brute force method O(n3) + O(nlogn) 
 def threeSum_b(nums: List[int]) -> List[List[int]]:
-    nums.sort()  # Sort the array to make duplicate checks easier
+    nums.sort()  
+    # Sort the array to make duplicate checks easier
     result = []
     for i in range(len(nums) - 2):
         if i > 0 and nums[i] == nums[i - 1]:
@@ -42,6 +43,8 @@ def heapSort(arr: List[int]) -> List[int]:
 
 
 
+# used heap sort for achiving O(1) S
+# overall Time Complexity is O(n logn) + O(n2) = O(n2)
 
 def threeSum(nums: List[int]) -> List[List[int]]:
     res=[]
@@ -50,6 +53,7 @@ def threeSum(nums: List[int]) -> List[List[int]]:
     for indx, val in enumerate(nums):
         print(indx, val)
         if indx > 0 and val == nums[indx-1]:
+            # Skip duplicates to avoid duplicate combinations
             continue
         
         left, right = indx + 1 , len(nums) -1
@@ -63,6 +67,7 @@ def threeSum(nums: List[int]) -> List[List[int]]:
                 res.append([val, nums[left], nums[right]])
                 left+=1
                 while nums[left] == nums[left-1] and left < right:
+                    # Skip duplicates to avoid duplicate combinations
                     left+=1
     return res
 
