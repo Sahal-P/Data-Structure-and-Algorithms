@@ -39,6 +39,18 @@ def characterReplacement(s: str, k: int) -> int:
                 max_len += 1
         return max_len
     
+def characterReplacement(s: str, k: int) -> int:
+        count = {}
+        maxf, l = 0, 0
+
+        for r in range(len(s)):
+            count[s[r]] = 1 + count.get(s[r], 0)
+            maxf = max(maxf, count[s[r]])
+            if (r - l + 1) - maxf > k:
+                count[s[l]] -= 1
+                l += 1
+        return r - l + 1
+    
 s = "AABABBA"
 k = 1
 
