@@ -1,4 +1,4 @@
-from collections import Counter
+from collections import Counter, defaultdict
 from testcase import testcase
 
 # the time complexity of the provided algorithm is O(n^3 * k) in the worst case, and the space complexity is O(k).
@@ -14,7 +14,7 @@ def characterReplacement_b(s: str, k: int) -> int:
     return longest
 
 # Linear time solution O(26*n) which O(n)
-def characterReplacement(s: str, k: int) -> int:    
+def characterReplacement_l(s: str, k: int) -> int:    
     count = {}
     res = 0
     left = 0
@@ -25,6 +25,20 @@ def characterReplacement(s: str, k: int) -> int:
             left+=1
         res = max(res, (right-left+1))
     return res
+
+# O(n) time complexity setting max_count and avoiding lookup
+def characterReplacement(s: str, k: int) -> int:
+        max_len, max_count = 0, 0
+        f = defaultdict(int)
+        for i in range(len(s)):
+            f[s[i]] += 1
+            max_count = max(max_count, f[s[i]])
+            if max_len - max_count >= k :
+                f[s[i - max_len]] -= 1
+            else:
+                max_len += 1
+        return max_len
+    
 s = "AABABBA"
 k = 1
 
