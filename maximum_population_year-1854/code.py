@@ -15,6 +15,7 @@ output_2 = 1960
 
 # Explanation: 
 # The maximum population is 2, and it had happened in years 1960 and 1970.
+
 # The earlier year between them is 1960.
 
 assert maximumPopulation(logs_1) == output_1
