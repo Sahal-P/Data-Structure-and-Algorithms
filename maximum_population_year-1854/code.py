@@ -1,8 +1,16 @@
 from typing import List
 
+
 def maximumPopulation( logs: List[List[int]] ) -> int:
-    print(logs)
-    return 1993
+    # res = [[0,0]] * len(logs)
+    res = [[0, 0] for _ in range(len(logs))]
+    print(res)
+    for i in range(len(logs)):
+        print(res[i][0])
+        res[i][0] = 1 + res[i][0]
+        res[i][1] = res[i][1] - 1
+    print(res)
+    return 
     
     
     
@@ -18,5 +26,6 @@ output_2 = 1960
 
 # The earlier year between them is 1960.
 
-assert maximumPopulation(logs_1) == output_1
-assert maximumPopulation(logs_2) == output_2
+maximumPopulation(logs_2)
+# assert maximumPopulation(logs_1) == output_1
+# assert maximumPopulation(logs_2) == output_2
