@@ -64,4 +64,31 @@ def reorderList(head: Optional[Node]) -> None:
         Nhead = Nhead.next
         index+=1
         
-reorderList(linkl.head)
+def reorderList_m(head: Optional[Node]) -> None:
+    # find middle
+    slow, fast = head, head.next
+    while fast and fast.next:
+        slow = slow.next
+        fast = fast.next.next
+    
+    secondHalf = slow.next
+    prev = slow.next = None
+    
+    # reverse second half
+    while secondHalf:
+        tmp = secondHalf.next
+        secondHalf.next = prev
+        prev = secondHalf
+        secondHalf = tmp
+        
+    # merge two half
+    first, second = head, prev
+    while second:
+        temp1, temp2 = first.next, second.next
+        first.next = second
+        second.next = temp1
+        first, second = temp1, temp2
+    
+        
+# reorderList(linkl.head)
+reorderList_m(linkl.head)
