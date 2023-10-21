@@ -46,4 +46,14 @@ def hasCycle(head: Optional[Node]) -> bool:
         head = head.next
     return False
     
-hasCycle(tHead)
+# Floyd’s cycle finding algorithm or Hare-Tortoise algorithm
+def hasCycle_m(head: Optional[Node]) -> bool:
+    slow = fast = head
+    while fast and fast.next:
+        slow = slow.next
+        fast = fast.next.next
+        if slow == fast:
+            return True
+    return False
+
+print(hasCycle_m(tHead))
