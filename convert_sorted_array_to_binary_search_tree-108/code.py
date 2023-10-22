@@ -28,6 +28,7 @@ class BinaryTree:
             else:
                 self._add(data, node.right)
 
+# T O(n) M O(logn)
 def sortedArrayToBST(nums: List[int]) -> Optional[Node]:
     if not nums:
         return None
