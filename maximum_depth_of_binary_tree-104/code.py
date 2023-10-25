@@ -49,3 +49,32 @@ tree.add_list_to_tree([8,4,2,9,0])
 
 tree.print_tree() 
 print()
+
+# DFS solution
+def maxDepth_DFS(root: Optional[Node]) -> int:
+    if not root:
+        return 0
+
+    return 1 + max(maxDepth_DFS(root.left), maxDepth_DFS(root.right))
+
+from collections import deque
+
+# BFS solution
+def maxDepth_BFS(root: Optional[Node]) -> int:
+    if not root:
+        return 0
+
+    level = 0
+    q = deque([root])
+    while q:
+        for i in range(len(q)):
+            node = q.popleft()
+            if node.left:
+                q.append(node.left)
+            if node.right:
+                q.append(node.right)
+        level +=1
+    return level
+
+
+print(maxDepth_BFS(tree.root))
