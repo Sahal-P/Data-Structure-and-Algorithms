@@ -23,6 +23,7 @@ class MinStack:
 val = [0,-2,4]
 
 obj = MinStack()
+
 for i in range(len(val)):
     obj.push(val[i])
 obj.pop()
