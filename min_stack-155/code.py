@@ -27,5 +27,6 @@ for i in range(len(val)):
     obj.push(val[i])
 obj.pop()
 param_3 = obj.top()
+
 param_4 = obj.getMin()
 print(param_3,param_4)
