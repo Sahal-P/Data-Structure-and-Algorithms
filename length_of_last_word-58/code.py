@@ -10,7 +10,7 @@ def lengthOfLastWord(s: str) -> int:
         """
 	one shortcut
 	"""
-	#	return len(s.split()[-1])
+	# return len(s.split()[-1])
         c = 0
         for i in s[::-1]:
             if i == " ":
@@ -19,3 +19,27 @@ def lengthOfLastWord(s: str) -> int:
             else:
                 c += 1
         return c
+
+def lengthOfLastWord_(s: str) -> int:
+        i = len(s) -1
+        isWord = True
+        index = 0
+        while isWord:
+                if s[i] != " ":
+                        index = i
+                        isWord=False 
+                if i == 0:
+                        isWord=False 
+                i-=1
+        wordLen = 0
+        wordFound = False
+        while not wordFound:
+                if index == 0:
+                        wordFound=True
+                if s[index] == " ":
+                        wordFound = True
+                else:
+                        wordLen+=1
+                index -=1
+        return wordLen
+lengthOfLastWord_("a")
