@@ -1,4 +1,4 @@
-from typing import List, Optional
+from typing import Optional
 
 class Node:
    def __init__(self, data):
@@ -7,7 +7,7 @@ class Node:
       self.right = None
       
 class BinaryTree:
-    def __init__(self):
+    def __init__(self) -> None:
         self.root = None
         
     def add_list_to_tree(self, arr):
@@ -44,12 +44,35 @@ class BinaryTree:
             self._print_tree(node.right)
                 
 tree1 = BinaryTree()
-tree1.add_list_to_tree([1,2,3])
+tree1.add_list_to_tree([1,2,4,3])
 tree2 = BinaryTree()
-tree2.add_list_to_tree([1,2,3])
+tree2.add_list_to_tree([1,2,4,3])
 
-
+# T O(p + q) M O(h)
 def isSameTree(p: Optional[Node], q: Optional[Node]) -> bool:
-    pass
+    if not p and not q:
+        return True
+    if not p or not q or p.data != q.data:
+        return False
+    a = isSameTree(p.left,q.left)
+    b = isSameTree(p.right,q.right)
+    return (a and b)
 
-isSameTree(tree1, tree2)
+# T O(p + q) M O(n)
+def ArrayMethod(p: Optional[Node], q: Optional[Node]) -> bool:
+    firstTree, secondTree = [], []
+
+    def get_value(array, root):
+        if root:
+            array.append(root.data)
+            get_value(array,root.left)
+            get_value(array,root.right)
+        
+    
+    get_value(firstTree, p)
+    get_value(secondTree, q)
+    print(firstTree, secondTree)
+    return firstTree == secondTree
+    
+# print(isSameTree(tree1.root, tree2.root))
+print(ArrayMethod(tree1.root, tree2.root))
