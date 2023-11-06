@@ -16,6 +16,7 @@ subroot = Node(4)
 subroot.right = Node(2)
 subroot.left = Node(1)
 
+# 
 def isSubtree(root: Optional[Node], subRoot: Optional[Node]) -> bool:
     if not subRoot: return True
     if not root: return False
