@@ -18,7 +18,7 @@ subroot.left = Node(1)
 
 # T O(h) M O(h)
 
-#  T O(M-N when i get the job i will start to get)
+#  T O(M-N)
 
 def isSubtree(root: Optional[Node], subRoot: Optional[Node]) -> bool:
     if not subRoot: return True
