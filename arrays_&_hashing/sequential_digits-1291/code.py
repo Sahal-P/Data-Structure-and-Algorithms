@@ -14,6 +14,7 @@ def sequentialDigits_b(low: int, high: int) -> List[int]:
         if is_sequential:
             result.append(num)
     return result
+
 # contant time
 def sequentialDigits(low: int, high: int) -> List[int]:
     result = []
