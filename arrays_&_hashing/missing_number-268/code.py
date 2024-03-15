@@ -15,8 +15,10 @@ def missingNumber(nums: List[int]) -> int:
     for i in num_set:
         return i
 
-# nums = [3,0,1]
+nums = [3,0,1]
+print(missingNumber(nums))
 # Output: 2
 
-# nums = [9,6,4,2,3,5,7,0,1]
+nums = [9,6,4,2,3,5,7,0,1]
+print(missingNumber(nums))
 # Output: 8
