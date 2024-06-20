@@ -9,6 +9,7 @@ def numIdenticalPairs(nums: List[int]) -> int:
     #     res += c * (c-1) // 2
     
     # without math
+    
     res = 0
     count = {}
     for n in nums:
